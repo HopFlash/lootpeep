@@ -1,0 +1,2 @@
+# lootpeep
+This is a Chrome Extension to enhance the experience with the Overlay functionality of Loots.com. The main propose was to get the alert peep of loot-apperance before the loot appears on screen to react properly as a streamer. It is more an research project to to know Chrome Extensions. While reading the Chrome Extension API I stumble over the easy TTS-feature and added it so that the viewer loot message can be read out loud.
