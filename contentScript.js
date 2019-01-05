@@ -1,7 +1,7 @@
-//var myElement = document.getElementsByClassName("js-overlays--overlay-container")[0];
 var myElement = document.getElementsByTagName("body")[0];
 
 var isActive = false;
+var isFlipped = false;
 
 var config = { attributes: true, childList: false, subtree: true, attributeFilter: ["class"] };
 
@@ -24,6 +24,18 @@ var callback = function(mutationsList, observer) {
 							src: ["/audio/new-tip.mp3"]
 						}).play();
 					}
+				})
+			}
+			else {
+				isActive = false;
+			}
+			if (!isFlipped && attrValue.includes("is-flipped")) {
+				isFlipped = true;
+				
+				chrome.storage.sync.get({
+					isPeepActive: true,
+					isTtsActive: true
+				}, function(items) {
 					if (items.isTtsActive) {
 						var msgParentElement = myElement.getElementsByClassName("lts-potsdamer-platz--message")[0];
 						var msgElement = msgParentElement.getElementsByTagName("span")[0];
@@ -34,7 +46,7 @@ var callback = function(mutationsList, observer) {
 				})
 			}
 			else {
-				isActive = false;
+				isFlipped = false;
 			}
 		}
 	}
