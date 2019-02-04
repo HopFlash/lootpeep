@@ -4,10 +4,18 @@
 		<title>Loots Peep Config</title>
     </head>
     <body>
-		<div id="status"></div>
+		<div id="status" style="color: green"></div>
 		<button id="save">Save</button>
-		
-		<input type="checkbox" id="peepActive">Peep</input>
+		<h3>Peep Options</h3>
+		<div>
+			<input type="checkbox" id="peepActive">Peep</input>
+		</div>
+		<div>
+			Volume:<span id="peepVolValue">-1</span>
+			<input type="range" min="0" max="100" value="50" class="slider" id="peepvolumeRange">
+		</div>
+		<hr>
+		<h3>TTS Options</h3>
 		<input type="checkbox" id="ttsActive">TTS</input>
 
 		<script src="popup.js"></script>

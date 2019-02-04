@@ -17,11 +17,14 @@ var callback = function(mutationsList, observer) {
 				
 				chrome.storage.sync.get({
 					isPeepActive: true,
-					isTtsActive: true
+					isTtsActive: true,
+					peepVolume: 50
 				}, function(items) {
+					console.log("Peepvolume:" + items.peepVolume);
 					if (items.isPeepActive) {
 						var sound = new Howl({
-							src: ["/audio/new-tip.mp3"]
+							src: ["/audio/new-tip.mp3"],
+							volume: items.peepVolume * 0.01
 						}).play();
 					}
 				})
@@ -34,14 +37,15 @@ var callback = function(mutationsList, observer) {
 				
 				chrome.storage.sync.get({
 					isPeepActive: true,
-					isTtsActive: true
+					isTtsActive: true,
+					peepVolume: 50
 				}, function(items) {
 					if (items.isTtsActive) {
 						var msgParentElement = myElement.getElementsByClassName("lts-potsdamer-platz--message")[0];
 						var msgElement = msgParentElement.getElementsByTagName("span")[0];
 						var msg = msgElement.textContent.trim();
 						console.log("Message: " + msg);
-						chrome.runtime.sendMessage( {message: msg} );
+						chrome.runtime.sendMessage( {message: msg, volume: items.peepVolume} );
 					}
 				})
 			}
