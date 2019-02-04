@@ -26,8 +26,8 @@ Do like "Installation" (but delete the content of the unzipped directory) but th
 Tip: You should go on the Loots "tips" page and slide the Tipjar sound volume slider (under "Status" headline) full to the left to mute this sound if you want to have "condensed view" oder "live view" open (to see the user messages).
 
 ## Future features
-- at the moment the tts is only set with default speaker, language etc. Configure this on the extensions config popup would be the next target.
-- volume control over the tip peep
+- at the moment the tts is only set with default speaker, language etc. Configuring this on the extensions config popup would be the next target.
+- language regognition of the loot message to choose an fitting speaker (using chrome.i18n detectLanguage)
 - nice "Loot peep"-Icon
 
 ## Loots ToS

@@ -17,10 +17,9 @@ var callback = function(mutationsList, observer) {
 				
 				chrome.storage.sync.get({
 					isPeepActive: true,
-					isTtsActive: true,
 					peepVolume: 50
 				}, function(items) {
-					console.log("Peepvolume:" + items.peepVolume);
+//					console.log("Peepvolume:" + items.peepVolume);
 					if (items.isPeepActive) {
 						var sound = new Howl({
 							src: ["/audio/new-tip.mp3"],
@@ -36,16 +35,16 @@ var callback = function(mutationsList, observer) {
 				isFlipped = true;
 				
 				chrome.storage.sync.get({
-					isPeepActive: true,
 					isTtsActive: true,
-					peepVolume: 50
+					ttsVolume: 50
 				}, function(items) {
 					if (items.isTtsActive) {
 						var msgParentElement = myElement.getElementsByClassName("lts-potsdamer-platz--message")[0];
 						var msgElement = msgParentElement.getElementsByTagName("span")[0];
 						var msg = msgElement.textContent.trim();
-						console.log("Message: " + msg);
-						chrome.runtime.sendMessage( {message: msg, volume: items.peepVolume} );
+//						console.log("Message: " + msg);
+//						console.log("TtsVolume: " + items.ttsVolume);
+						chrome.runtime.sendMessage( {message: msg, volume: items.ttsVolume} );
 					}
 				})
 			}
