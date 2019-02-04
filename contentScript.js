@@ -36,7 +36,8 @@ var callback = function(mutationsList, observer) {
 				
 				chrome.storage.sync.get({
 					isTtsActive: true,
-					ttsVolume: 50
+					ttsVolume: 50,
+					ttsVoice: 'default'
 				}, function(items) {
 					if (items.isTtsActive) {
 						var msgParentElement = myElement.getElementsByClassName("lts-potsdamer-platz--message")[0];
@@ -44,7 +45,7 @@ var callback = function(mutationsList, observer) {
 						var msg = msgElement.textContent.trim();
 //						console.log("Message: " + msg);
 //						console.log("TtsVolume: " + items.ttsVolume);
-						chrome.runtime.sendMessage( {message: msg, volume: items.ttsVolume} );
+						chrome.runtime.sendMessage( {message: msg, volume: items.ttsVolume, voiceId: items.ttsVoice} );
 					}
 				})
 			}
