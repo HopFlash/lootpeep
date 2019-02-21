@@ -15,7 +15,7 @@ This is a Chrome Extension to enhance the experience with the Overlay functional
 - Open extensions (e.g. "URL": chrome://extensions )
 - Activate "Developer mode" (upper right corner) and be aware of it because it can be a security hole for other extensions
 - Click "Load unpacked extensions..."
-- Go to the directory where you unpacked the zip and press "ok"
+- Go to the directory where you unpacked the zip and into the subfolder "extension" and press "ok"
 
 Now it should be active in your chrome instance and you can deactive "Developer mode" again.
 

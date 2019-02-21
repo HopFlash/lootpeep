@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+		<title>Loots Peep Config</title>
+    </head>
+    <body>
+		<div id="status" style="color: green"></div>
+		<button id="save">Save</button>
+		<h3>Peep Options</h3>
+		<div>
+			<input type="checkbox" id="peepActive">Peep</input>
+		</div>
+		<div>
+			Volume:<span id="peepVolValue">-1</span>
+			<input type="range" min="0" max="100" value="50" class="slider" id="peepVolumeRange">
+		</div>
+		<hr>
+		<h3>TTS Options</h3>
+		<div>
+			<input type="checkbox" id="ttsActive">TTS</input>
+		</div>
+		<div>
+			Volume:<span id="ttsVolValue">-1</span>
+			<input type="range" min="0" max="100" value="50" class="slider" id="ttsVolumeRange">
+		</div>
+		<div>
+			Voice and language:
+			<select name="voices" id="dropdownVoices">
+				<option value="default">Default</option>
+				<option value="autodetect">Auto-Detect</option>
+			</select>
+		</div>
+		<script src="popup.js"></script>
+    </body>
+  </html>
+  
