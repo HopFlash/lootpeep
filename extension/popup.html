@@ -23,15 +23,16 @@
 			Volume:<span id="ttsVolValue">-1</span>
 			<input type="range" min="0" max="100" value="50" class="slider" id="ttsVolumeRange">
 		</div>
-		<div>
+		<div style="margin-top: 10px">
 			Voice and language:
 			<select name="voices" id="dropdownVoices">
 				<option value="default">Default</option>
 				<option value="autodetect">Auto-Detect</option>
 			</select>
 		</div>
-		<div>
+		<div style="margin-top: 5px">
 			<input type="checkbox" id="ttsWithUsername">Username</input>
+			<span>(only useable with explicit TTS voice and not default or Auto-Detect)</span>
 		</div>
 		<script src="popup.js"></script>
     </body>
