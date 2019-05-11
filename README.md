@@ -6,6 +6,7 @@ This is a Chrome Extension to enhance the experience with the Overlay functional
 ## Features
 - Peep-sound when loot appears in overlay
 - TTS (Text-to-Speech) the loot message in different languages (configurable)
+- optional readout of username who send the loots message in some languages (german, english, spanish, french, italian, dutch, polish, portuguese and russian)
 - volume control on peep and tts
 
 ## Installation (sorry, no Chrome Store entry yet)
