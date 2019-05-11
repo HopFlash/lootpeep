@@ -37,12 +37,53 @@ var callback = function(mutationsList, observer) {
 				chrome.storage.sync.get({
 					isTtsActive: true,
 					ttsVolume: 50,
-					ttsVoice: 'default'
+					ttsVoice: 'default',
+					ttsVoiceLang: '',
+					isTtsWithUsername: false
 				}, function(items) {
 					if (items.isTtsActive) {
 						var msgParentElement = myElement.getElementsByClassName("lts-potsdamer-platz--message")[0];
 						var msgElement = msgParentElement.getElementsByTagName("span")[0];
+						var usernameElement = msgParentElement.getElementsByTagName("span")[1];
 						var msg = msgElement.textContent.trim();
+						if ( (items.isTtsWithUsername) && (typeof(usernameElement) != 'undefined') ) {
+							var username = usernameElement.textContent.replace("From:", "").trim();
+							//console.log("Username: " + username);
+							//console.log("Voice Lang: " + items.ttsVoiceLang);
+							var shortLang = items.ttsVoiceLang.substr(0, items.ttsVoiceLang.indexOf("-") );
+							//console.log("Voice Lang short: " + shortLang);
+							var usernameMsgPart = "";
+							switch(shortLang) {
+								case "de":
+									usernameMsgPart = ", Nachricht von " + username;
+									break;
+								case "en":
+									usernameMsgPart = ", Message from " + username;
+									break;
+								case "es":
+									usernameMsgPart = ", Mensaje de " + username;
+									break;
+								case "fr":
+									usernameMsgPart = ", Message de " + username;
+									break;
+								case "it":
+									usernameMsgPart = ", Messaggio da " + username;
+									break;
+								case "nl":
+									usernameMsgPart = ", Bericht van " + username;
+									break;
+								case "pl":
+									usernameMsgPart = ", wiadomośc od " + username;
+									break;
+								case "pt":
+									usernameMsgPart = ", Mensagem de " + username;
+									break;
+								case "ru":
+									usernameMsgPart = ", сообщение от " + username;
+									break;
+							}
+							msg += usernameMsgPart;
+						}
 //						console.log("Message: " + msg);
 //						console.log("TtsVolume: " + items.ttsVolume);
 						chrome.runtime.sendMessage( {message: msg, volume: items.ttsVolume, voiceId: items.ttsVoice} );

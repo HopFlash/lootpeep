@@ -12,6 +12,7 @@ let voices = chrome.tts.getVoices(
 			//newOption.value = voices[i].voiceName + "_" + voices[i].lang;
 			newOption.value = voices[i].voiceName;
 			newOption.text = voices[i].voiceName + " (" + voices[i].lang + ")";
+			newOption.lang = voices[i].lang;
 			document.getElementById('dropdownVoices').options.add(newOption);
 		}
 	}
@@ -25,13 +26,17 @@ function save_options() {
 	let ttsVolume = document.getElementById('ttsVolumeRange').value;
 	var dropDownVoices = document.getElementById('dropdownVoices');
 	let ttsVoice = dropDownVoices.options[dropDownVoices.selectedIndex].value;
+	let ttsVoiceLang = dropDownVoices.options[dropDownVoices.selectedIndex].lang;
+	let ttsWithUsername = document.getElementById('ttsWithUsername').checked;
 
 	chrome.storage.sync.set({
 		isPeepActive: peepActive,
 		isTtsActive: ttsActive,
 		peepVolume: peepVolume,
 		ttsVolume: ttsVolume,
-		ttsVoice: ttsVoice
+		ttsVoice: ttsVoice,
+		ttsVoiceLang: ttsVoiceLang,
+		isTtsWithUsername: ttsWithUsername
 	}, function() {
 		// Update status to let user know options were saved.
 		var status = document.getElementById('status');
@@ -50,7 +55,9 @@ function restore_options() {
     isTtsActive: true,
 	peepVolume: 50,
 	ttsVolume: 50,
-	ttsVoice: "default"
+	ttsVoice: "default",
+	ttsVoiceLang: "",
+	isTtsWithUsername: false
   }, function(items) {
     document.getElementById('peepActive').checked = items.isPeepActive;
     document.getElementById('ttsActive').checked = items.isTtsActive;
@@ -58,6 +65,7 @@ function restore_options() {
 	document.getElementById('peepVolValue').textContent = items.peepVolume;
 	document.getElementById('ttsVolumeRange').value = items.ttsVolume;
 	document.getElementById('ttsVolValue').textContent = items.ttsVolume;
+    document.getElementById('ttsWithUsername').checked = items.isTtsWithUsername;
 	chooseFittingVoiceInDrowdown(items.ttsVoice);
   });
 }
