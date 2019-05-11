@@ -55,28 +55,28 @@ var callback = function(mutationsList, observer) {
 							var usernameMsgPart = "";
 							switch(shortLang) {
 								case "de":
-									usernameMsgPart = ", Nachricht von " + username;
+									usernameMsgPart = ", eine Nachricht von " + username;
 									break;
 								case "en":
-									usernameMsgPart = ", Message from " + username;
+									usernameMsgPart = ", a message from " + username;
 									break;
 								case "es":
-									usernameMsgPart = ", Mensaje de " + username;
+									usernameMsgPart = ", un mensaje de " + username;
 									break;
 								case "fr":
-									usernameMsgPart = ", Message de " + username;
+									usernameMsgPart = ", un message de " + username;
 									break;
 								case "it":
-									usernameMsgPart = ", Messaggio da " + username;
+									usernameMsgPart = ", un messaggio da " + username;
 									break;
 								case "nl":
-									usernameMsgPart = ", Bericht van " + username;
+									usernameMsgPart = ", een bericht van " + username;
 									break;
 								case "pl":
 									usernameMsgPart = ", wiadomośc od " + username;
 									break;
 								case "pt":
-									usernameMsgPart = ", Mensagem de " + username;
+									usernameMsgPart = ", uma mensagem de " + username;
 									break;
 								case "ru":
 									usernameMsgPart = ", сообщение от " + username;
