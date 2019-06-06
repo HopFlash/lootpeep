@@ -26,10 +26,13 @@ Do like "Installation" (but delete the content of the unzipped directory) but th
 ## Use
 - Open your personal Loots page with tab "Live" and choose "Overlays". 
 - Scroll down and click on the icon called "GENERIC" or the dropdown box "Select your software to get the overlay URL …" and choose "Other/Generic" overlay option.
+
 ![Use image 1](/images_readme/use1.jpg)
 - Click the appearing link and let this open in your Chrome Browser – the screen will appear green. DO NOT CLOSE THIS WINDOWS
+
 ![Use image 2](/images_readme/use2.jpg)
 - In your Chrome Browser bar there appears a Loots Peep button where you can configure some options. (only when you are on a Loots page)
+
 ![Use image 3](/images_readme/use3.jpg)
 
 Tip: You should go on the Loots "tips" page and slide the Tipjar sound volume slider (under "Status" headline) full to the left to mute this sound if you want to have "condensed view" oder "live view" open (to see the user messages).
